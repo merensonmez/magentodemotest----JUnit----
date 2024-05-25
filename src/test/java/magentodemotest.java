@@ -1,8 +1,12 @@
+import com.aventstack.extentreports.utils.FileUtil;
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.poi.sl.draw.geom.PresetGeometries;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -10,11 +14,13 @@ import org.openqa.selenium.support.ui.Select;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Driver;
 import java.time.Duration;
 
 public class magentodemotest {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -99,7 +105,14 @@ public class magentodemotest {
         Thread.sleep(1000);
 
         driver.findElement(By.xpath("//button[@class='button action continue primary']")).click();
+        Thread.sleep(2000);
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenshotFile,new File("Checkout Page"));
         Thread.sleep(1000);
         driver.findElement(By.xpath("//button[@title='Place Order']")).click();
+        Thread.sleep(1000);
+
+
+
     }
 }

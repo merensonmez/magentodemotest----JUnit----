@@ -108,7 +108,7 @@ public class magentodemotest {
         driver.findElement(By.xpath("//button[@class='button action continue primary']")).click();
         Thread.sleep(2000);
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshotFile,new File("Checkout Page"));
+        FileUtils.copyFile(screenshotFile,new File("CheckoutPage.png"));
         Thread.sleep(1000);
         driver.findElement(By.xpath("//button[@title='Place Order']")).click();
         Thread.sleep(1000);

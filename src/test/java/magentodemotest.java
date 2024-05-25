@@ -5,10 +5,12 @@ import org.apache.poi.sl.draw.geom.PresetGeometries;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.sql.Driver;
 import java.time.Duration;
 
 public class magentodemotest {
@@ -23,6 +25,8 @@ public class magentodemotest {
         String fakeLastName = faker.name().lastName();
         String fakeEmail = faker.internet().emailAddress();
         String fakePassword = RandomStringUtils.randomAlphanumeric(10);
+        String fakePhoneNumber = RandomStringUtils.randomNumeric(11);
+
 
         driver.get("https://magento-demo.mageplaza.com/");
 
@@ -71,6 +75,31 @@ public class magentodemotest {
         Thread.sleep(2000);
         driver.findElement(By.id("option-label-color-93-item-50")).click();
         Thread.sleep(2000);
+        driver.findElement(By.id("product-addtocart-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.linkText("shopping cart")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//button[@data-role='proceed-to-checkout']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.name("company")).sendKeys("ErenSonmez");
+        Thread.sleep(1000);
+        driver.findElement(By.name("street[0]")).sendKeys("Malatya Yesilyurt");
+        Thread.sleep(1000);
+        driver.findElement(By.name("street[1]")).sendKeys("Zonguldak Kozlu");
+        Thread.sleep(1000);
+        WebElement dropdownElement = driver.findElement(By.name("country_id"));
+        Select dropdown = new Select(dropdownElement);
+        dropdown.selectByVisibleText("Turkey");
+        WebElement stateProvince = driver.findElement(By.name("region"));
+        stateProvince.sendKeys("Yesilyurt");
+        Thread.sleep(1000);
+        driver.findElement(By.name("city")).sendKeys("Malatya");
+        Thread.sleep(1000);
+        driver.findElement(By.name("postcode")).sendKeys("44000");
+        Thread.sleep(1000);
 
+        driver.findElement(By.xpath("//button[@class='button action continue primary']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//button[@title='Place Order']")).click();
     }
 }

@@ -35,7 +35,7 @@ public class magentodemotest {
         }else {
             System.out.println("Accepted cookies!!!");
         }
-        WebElement createAccountButton = driver.findElement(By.id("idIhFKvONA"));
+        WebElement createAccountButton = driver.findElement(By.linkText("Create an Account"));
         createAccountButton.click();
         Thread.sleep(1000);
 

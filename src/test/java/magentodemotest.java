@@ -115,7 +115,7 @@ public class magentodemotest {
 
         WebElement orderNumber = driver.findElement(By.xpath("//div[@class='page-wrapper']//p[1]"));
         String orderIDNumber = orderNumber.getText();
-        System.out.println("Order ID: " + orderIDNumber);
+        System.out.println("" + orderIDNumber);
         Thread.sleep(1000);
 
         driver.findElement(By.xpath("//span[normalize-space()='Continue Shopping']")).click();

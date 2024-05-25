@@ -120,5 +120,8 @@ public class magentodemotest {
         Thread.sleep(1000);
 
         driver.findElement(By.xpath("//span[normalize-space()='Continue Shopping']")).click();
+        Thread.sleep(1000);
+
+        driver.quit();
     }
 }

@@ -97,6 +97,7 @@ public class magentodemotest {
         Select dropdown = new Select(dropdownElement);
         dropdown.selectByVisibleText("Turkey");
         WebElement stateProvince = driver.findElement(By.name("region"));
+        Thread.sleep(1000);
         stateProvince.sendKeys("Yesilyurt");
         Thread.sleep(1000);
         driver.findElement(By.name("city")).sendKeys("Malatya");

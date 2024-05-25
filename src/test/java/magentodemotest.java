@@ -103,7 +103,8 @@ public class magentodemotest {
         Thread.sleep(1000);
         driver.findElement(By.name("postcode")).sendKeys("44000");
         Thread.sleep(1000);
-
+        driver.findElement(By.name("telephone")).sendKeys(fakePhoneNumber);
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//button[@class='button action continue primary']")).click();
         Thread.sleep(2000);
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -112,7 +113,11 @@ public class magentodemotest {
         driver.findElement(By.xpath("//button[@title='Place Order']")).click();
         Thread.sleep(1000);
 
+        WebElement orderNumber = driver.findElement(By.xpath("//div[@class='page-wrapper']//p[1]"));
+        String orderIDNumber = orderNumber.getText();
+        System.out.println("Order ID: " + orderIDNumber);
+        Thread.sleep(1000);
 
-
+        driver.findElement(By.xpath("//span[normalize-space()='Continue Shopping']")).click();
     }
 }

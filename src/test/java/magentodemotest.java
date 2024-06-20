@@ -36,15 +36,6 @@ public class magentodemotest {
 
         driver.get("https://magento-demo.mageplaza.com/");
 
-        Thread.sleep(1000);
-        WebElement acceptCookies = driver.findElement(By.xpath("//button[@id='cookie-consent-btn-accept-all']"));
-        acceptCookies.click();
-
-        if (acceptCookies.isDisplayed()){
-            System.out.println("Accepted Cookies successfully.");
-        }else {
-            System.out.println("Accepted cookies!!!");
-        }
         WebElement createAccountButton = driver.findElement(By.linkText("Create an Account"));
         createAccountButton.click();
         Thread.sleep(1000);
